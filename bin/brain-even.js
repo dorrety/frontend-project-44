@@ -24,8 +24,8 @@ const question = (randomNumber) => {
             console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}`);
             break;
         }
-        console.log(`Congratulations, ${userName}`);
     }
+    console.log(`Congratulations, ${userName}`);
 };
 
 console.log(question(100));
