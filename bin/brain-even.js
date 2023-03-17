@@ -29,4 +29,5 @@ const brainEven = (randomNumber) => {
         }
     }
 };
-export { getRandomInt, brainEven };
+
+brainEven();
