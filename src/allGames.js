@@ -56,14 +56,31 @@ const getCorrectAnswer = (nameGame) => {
 
 //Окончание игры
 const gameOver = () => {
-  if (userAnswer === correctAnswer) {
-    correctSum += 1;
-    console.log('Correct!');
-    if (correctSum === 3) {
-        console.log(`Congratulations, ${userName}`);
+  for (let i = 0; i < 3; i += 1) {
+    if (userAnswer === correctAnswer) {
+      correctSum += 1;
+      console.log('Correct!');
+      if (correctSum === 3) {
+          console.log(`Congratulations, ${userName}`);
+      }
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}`);
+      break;
     }
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}`);
-    break;
   }
+};
+
+//Функция для brain-progression
+
+const getProgression = () => {
+  let arr = [];
+  let firstRandomInt = getRandomInt(15);
+  let stepProgression = getRandomInt(10);
+  const hideIndex = getRandomInt(10);
+  const endProgression = firstRandomInt + stepProgression * 10;
+  for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
+      arr.push(i);
+  }
+  arr.splice(hideIndex, 1, '..');
+  console.log(arr.join(' '));
 };
