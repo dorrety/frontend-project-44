@@ -16,6 +16,9 @@ const getProgression = () => {
     stepProgression = getRandomInt(10);
     const hideIndex = getRandomInt(10);
     const endProgression = firstRandomInt + stepProgression * 10;
+    if (stepProgression === 0) {
+        stepProgression = getRandomInt(10);
+    }
     for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
         arr.push(i);
     }

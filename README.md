@@ -5,19 +5,24 @@
 
 Игра: "Проверка на чётность"
 "brain-even"
+https://asciinema.org/a/JXVwb5pSZGORJm4Gs93Uo1asa
 
 
 игра: "Калькулятор"
-"brain-calc" 
+"brain-calc"
+https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz
 
 
 Игра: "Наибольший общий делитель"
-"brain-gcd" 
+"brain-gcd"
+https://asciinema.org/a/Fz29rac9DThNMQN1cGGFYs2Nk
 
 
 Игра: "Прогрессия"
 "brain-progression"
+https://asciinema.org/a/875orPIyAO9tyw71jwfoWxH0I
 
 
 Игра: "Простое ли число?"
 "brain-prime"
+https://asciinema.org/a/CevjszAZ1Y3rNnVQ4fjcMDsqr
