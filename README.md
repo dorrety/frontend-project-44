@@ -8,7 +8,7 @@
 https://asciinema.org/a/JXVwb5pSZGORJm4Gs93Uo1asa
 
 
-игра: "Калькулятор"
+Игра: "Калькулятор"
 "brain-calc"
 https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz
 
