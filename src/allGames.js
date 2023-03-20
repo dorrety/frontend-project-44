@@ -12,6 +12,7 @@ let hiddenNumber;
 
 // Приветствие
 export const greetings = () => {
+  console.log('Welcome to the Brain Games!')
   userName = readlineSync.question('May I have your name? ');
   console.log(`${'Hello,'} ${userName}${'!'}`);
 };
@@ -30,28 +31,6 @@ const getRandomOperator = () => {
   const randomOperator = Math.floor(Math.random() * arr.length);
   const operator = arr[randomOperator];
   return operator;
-};
-
-// Приветствие игры
-const getBrainGame = (nameGame) => {
-  switch (nameGame) {
-    case 'brain-even':
-      console.log('Welcome to the BrainEven - game!');
-      break;
-    case 'brain-calc':
-      console.log('Welcome to the BrainCalc - game!');
-      break;
-    case 'brain-gcd':
-      console.log('Welcome to the BrainGcd - game!');
-      break;
-    case 'brain-progression':
-      console.log('Welcome to the BrainProgression - game!');
-      break;
-    case 'brain-prime':
-      console.log('Welcome to the BrainPrime - game!');
-      break;
-    default:
-  }
 };
 
 // Правила игры
@@ -148,13 +127,14 @@ const correctBrainCalcAnswer = (a, b) => {
 
 // Функция для игры НОД
 const getNOD = (a, b) => {
-  for (let i = 0; i < 2; i += 1) {
-    while (a && b) {
-      a > b ? a %= b : b %= a;
+  while (a !== 0 && b !== 0) {
+    if (a > b) {
+      a = a % b;
+    } else {
+      b = b % a;
     }
-    a += b;
   }
-  return a;
+  return a + b;
 };
 
 // Правильный ответ
@@ -181,7 +161,6 @@ const getCorrectAnswer = (nameGame) => {
 
 const runGame = (nameGame) => {
   let correctSum = 0;
-  getBrainGame(nameGame);
   greetings();
   rulesOfGames(nameGame);
   for (let i = 0; i < 3; i += 1) {
