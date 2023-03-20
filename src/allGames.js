@@ -12,7 +12,7 @@ let hiddenNumber;
 
 // Приветствие
 export const greetings = () => {
-  console.log('Welcome to the Brain Games!')
+  console.log('Welcome to the Brain Games!');
   userName = readlineSync.question('May I have your name? ');
   console.log(`${'Hello,'} ${userName}${'!'}`);
 };
@@ -127,14 +127,16 @@ const correctBrainCalcAnswer = (a, b) => {
 
 // Функция для игры НОД
 const getNOD = (a, b) => {
-  while (a !== 0 && b !== 0) {
-    if (a > b) {
-      a = a % b;
+  let c = a;
+  let d = b;
+  while (c !== 0 && d !== 0) {
+    if (c > d) {
+      c %= d;
     } else {
-      b = b % a;
+      d %= c;
     }
   }
-  return a + b;
+  return c + d;
 };
 
 // Правильный ответ
