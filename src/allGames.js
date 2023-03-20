@@ -1,14 +1,24 @@
 import * as readlineSync from 'readline-sync';
 
-let sign;
+let userName;
 let correctAnswer;
-let correctSum = 0;
+let stepProgression;
+let randomNumber;
 let userAnswer;
+let firstRandomInt;
+let secondRandomInt;
+let sign;
+let hiddenNumber;
 
 //Приветствие
 export const greetings = () => {
-  const userName = readlineSync.question('May I have your name? ');
+  userName = readlineSync.question('May I have your name? ');
   console.log(`${'Hello,'} ${userName}${'!'}`);
+};
+
+//Получение ответа
+const getUserAnswer = () => {
+  return userAnswer = readlineSync.question('Your answer: ');
 };
 
 //Получение случайного числа
@@ -29,14 +39,19 @@ const getBrainGame = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
       console.log('Welcome to the BrainEven - game!');
+      break;
     case 'brain-calc':
       console.log('Welcome to the BrainCalc - game!');
+      break;
     case 'brain-gcd':
       console.log('Welcome to the BrainGcd - game!');
+      break;
     case 'brain-progression':
       console.log('Welcome to the BrainProgression - game!');
+      break;
     case 'brain-prime':
       console.log('Welcome to the BrainPrime - game!');
+      break;
   }
 };
 
@@ -45,16 +60,48 @@ const rulesOfGames = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
       console.log('Answer "yes" if the number is even, otherwise answer "no".');
+      break;
     case 'brain-calc':
       console.log('What is the result of the expression?');
+      break;
     case 'brain-gcd':
       console.log('Find the greatest common divisor of given numbers.');
+      break;
     case 'brain-prime':
       console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+      break;
     case 'brain-progression':
       console.log('What number is missing in the progression?');
+      break;
   }
 };
+
+//Вопрос игры
+const getQuestion = (nameGame) => {
+  firstRandomInt = getRandomInt(10);
+  secondRandomInt = getRandomInt(10);
+  randomNumber = getRandomInt(100);
+  sign = getRandomOperator();
+  switch (nameGame) {
+    case 'brain-even':
+      console.log(`Question: ${randomNumber}`);
+      break;
+    case 'brain-calc':
+      randomNumber = getRandomInt(10);
+      console.log(`Question: ${firstRandomInt} ${sign} ${secondRandomInt}`);
+      break;
+    case 'brain-gcd':
+      console.log(`Question: ${firstRandomInt} ${secondRandomInt}`);
+      break;
+    case 'brain-progression':
+      console.log(`Question: ${getProgression()}`);
+      break;
+    case 'brain-prime':
+      console.log(`Question: ${firstRandomInt}`);
+      break;
+  }  
+};
+
 //Правильный ответ для brain-calc
 const correctBrainCalcAnswer = (a, b) => {
   if (sign === '+') {
@@ -65,22 +112,6 @@ const correctBrainCalcAnswer = (a, b) => {
       correctAnswer = a * b;
   }
   return correctAnswer;
-};
-
-//Окончание игры
-const gameOver = () => {
-  for (let i = 0; i < 3; i += 1) {
-    if (userAnswer === correctAnswer) {
-      correctSum += 1;
-      console.log('Correct!');
-      if (correctSum === 3) {
-          console.log(`Congratulations, ${userName}!`);
-      }
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}!`);
-      break;
-    }
-  }
 };
 
 //Функция для игры НОД
@@ -100,10 +131,11 @@ const getProgression = () => {
   firstRandomInt = getRandomInt(15);
   stepProgression = getRandomInt(10);
   const hideIndex = getRandomInt(10);
-  const endProgression = firstRandomInt + stepProgression * 10;
   if (stepProgression === 0) {
       stepProgression = getRandomInt(10);
   }
+  let endProgression = firstRandomInt + stepProgression * 10;
+  
   for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
       arr.push(i);
   }
@@ -129,21 +161,42 @@ const getCorrectAnswer = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
       correctAnswer =  randomNumber % 2 === 0 ? 'yes' : 'no';
+      break;
     case 'brain-calc':
       correctAnswer = correctBrainCalcAnswer(firstRandomInt, secondRandomInt).toString();
+      break;
     case 'brain-gcd':
-      correctAnswer = correctAnswer = getNOD(firstRandomInt, secondRandomInt).toString();
+      correctAnswer = getNOD(firstRandomInt, secondRandomInt).toString();
+      break;
     case 'brain-progression':
       correctAnswer = hiddenNumber.toString();
+      break;
     case 'brain-prime':
-      correctAnswer = getPrime(randomNumber);
+      correctAnswer = getPrime(firstRandomInt);
+      break;
   }
 };
 
 const runGame = (nameGame) => {
+  let correctSum = 0;
   getBrainGame(nameGame);
   greetings();
   rulesOfGames(nameGame);
+  for (let i = 0; i < 3; i += 1) {
+    getQuestion(nameGame);
+    getCorrectAnswer(nameGame);
+    getUserAnswer();
+    if (correctAnswer === userAnswer) {
+      correctSum += 1;
+    console.log('Correct!');
+    if (correctSum === 3) {
+      console.log(`Congratulations, ${userName}!`);
+    }
+  } else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}!`);
+    break;
+    }
+  }
 };
 
 export default runGame;
