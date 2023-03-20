@@ -10,31 +10,29 @@ let secondRandomInt;
 let sign;
 let hiddenNumber;
 
-//Приветствие
+// Приветствие
 export const greetings = () => {
   userName = readlineSync.question('May I have your name? ');
   console.log(`${'Hello,'} ${userName}${'!'}`);
 };
 
-//Получение ответа
+// Получение ответа
 const getUserAnswer = () => {
-  return userAnswer = readlineSync.question('Your answer: ');
+  userAnswer = readlineSync.question('Your answer: ');
 };
 
-//Получение случайного числа
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * max);
-};
+// Получение случайного числа
+const getRandomInt = (max) => Math.floor(Math.random() * max);
 
-//Получение случайного мат. знака
+// Получение случайного мат. знака
 const getRandomOperator = () => {
-  const arr = ["+", "-", "*"];
+  const arr = ['+', '-', '*'];
   const randomOperator = Math.floor(Math.random() * arr.length);
   const operator = arr[randomOperator];
   return operator;
 };
 
-//Приветствие игры
+// Приветствие игры
 const getBrainGame = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
@@ -52,10 +50,11 @@ const getBrainGame = (nameGame) => {
     case 'brain-prime':
       console.log('Welcome to the BrainPrime - game!');
       break;
+    default:
   }
 };
 
-//Правила игры
+// Правила игры
 const rulesOfGames = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
@@ -73,10 +72,42 @@ const rulesOfGames = (nameGame) => {
     case 'brain-progression':
       console.log('What number is missing in the progression?');
       break;
+    default:
   }
 };
 
-//Вопрос игры
+// Функция для игры brain-progression
+const getProgression = () => {
+  const arr = [];
+  firstRandomInt = getRandomInt(15);
+  stepProgression = getRandomInt(10);
+  const hideIndex = getRandomInt(10);
+  if (stepProgression === 0) {
+    stepProgression = getRandomInt(10);
+  }
+  const endProgression = firstRandomInt + stepProgression * 10;
+
+  for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
+    arr.push(i);
+  }
+  hiddenNumber = arr.splice(hideIndex, 1, '..');
+  return arr.join(' ');
+};
+
+// Функция для игры brain-prime
+const getPrime = (number) => {
+  if (number < 2) {
+    return 'no';
+  }
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
+};
+
+// Вопрос игры
 const getQuestion = (nameGame) => {
   firstRandomInt = getRandomInt(10);
   secondRandomInt = getRandomInt(10);
@@ -99,68 +130,38 @@ const getQuestion = (nameGame) => {
     case 'brain-prime':
       console.log(`Question: ${firstRandomInt}`);
       break;
-  }  
+    default:
+  }
 };
 
-//Правильный ответ для brain-calc
+// Правильный ответ для brain-calc
 const correctBrainCalcAnswer = (a, b) => {
   if (sign === '+') {
-      correctAnswer = a + b;
+    correctAnswer = a + b;
   } else if (sign === '-') {
-      correctAnswer = a - b;
+    correctAnswer = a - b;
   } else {
-      correctAnswer = a * b;
+    correctAnswer = a * b;
   }
   return correctAnswer;
 };
 
-//Функция для игры НОД
+// Функция для игры НОД
 const getNOD = (a, b) => {
   for (let i = 0; i < 2; i += 1) {
-      while (a && b) {
-          a > b ? a %= b : b %= a;
-      }
-      a += b;
+    while (a && b) {
+      a > b ? a %= b : b %= a;
+    }
+    a += b;
   }
   return a;
 };
 
-//Функция для игры brain-progression
-const getProgression = () => {
-  let arr = [];
-  firstRandomInt = getRandomInt(15);
-  stepProgression = getRandomInt(10);
-  const hideIndex = getRandomInt(10);
-  if (stepProgression === 0) {
-      stepProgression = getRandomInt(10);
-  }
-  let endProgression = firstRandomInt + stepProgression * 10;
-  
-  for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
-      arr.push(i);
-  }
-  hiddenNumber = arr.splice(hideIndex, 1, '..');
-  return arr.join(' ');
-};
-
-//Функция для игры brain-prime
-const getPrime = (number) => {
-  if (number < 2) {
-      return 'no';
-  }
-  for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) {
-          return 'no';
-      }
-  }
-  return 'yes';
-};
-
-//Правильный ответ
+// Правильный ответ
 const getCorrectAnswer = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
-      correctAnswer =  randomNumber % 2 === 0 ? 'yes' : 'no';
+      correctAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
       break;
     case 'brain-calc':
       correctAnswer = correctBrainCalcAnswer(firstRandomInt, secondRandomInt).toString();
@@ -174,6 +175,7 @@ const getCorrectAnswer = (nameGame) => {
     case 'brain-prime':
       correctAnswer = getPrime(firstRandomInt);
       break;
+    default:
   }
 };
 
@@ -188,13 +190,13 @@ const runGame = (nameGame) => {
     getUserAnswer();
     if (correctAnswer === userAnswer) {
       correctSum += 1;
-    console.log('Correct!');
-    if (correctSum === 3) {
-      console.log(`Congratulations, ${userName}!`);
-    }
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}!`);
-    break;
+      console.log('Correct!');
+      if (correctSum === 3) {
+        console.log(`Congratulations, ${userName}!`);
+      }
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}!`);
+      break;
     }
   }
 };
