@@ -83,7 +83,6 @@ const getQuestion = (nameGame) => {
   firstRandomInt = getRandomInt(10);
   secondRandomInt = getRandomInt(10);
   randomNumber = getRandomInt(100);
-  sign = getRandomOperator();
   switch (nameGame) {
     case 'brain-even':
       console.log(`Question: ${randomNumber}`);
@@ -103,18 +102,6 @@ const getQuestion = (nameGame) => {
       break;
     default:
   }
-};
-
-// Правильный ответ для brain-calc
-const correctBrainCalcAnswer = (a, b) => {
-  if (sign === '+') {
-    correctAnswer = a + b;
-  } else if (sign === '-') {
-    correctAnswer = a - b;
-  } else {
-    correctAnswer = a * b;
-  }
-  return correctAnswer;
 };
 
 // Функция для игры НОД
