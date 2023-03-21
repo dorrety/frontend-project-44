@@ -1,28 +1,42 @@
-### Hexlet tests and linter status:
+# Hexlet tests and linter status:
 [![Actions Status](https://github.com/dorrety/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/dorrety/frontend-project-44/actions)
 <a href="https://codeclimate.com/github/dorrety/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/39d7cfc63d7ea3512892/maintainability" /></a>
 
+## Пакет Brain games представляет из себя набор из 5 игр.
 
-Игра: "Проверка на чётность"
+
+## Установка:
+
+```bash
+make install
+```
+
+
+### Игра: "Проверка на чётность"
+Нужно угадать чётное число или же нет.
 "brain-even"
 https://asciinema.org/a/JXVwb5pSZGORJm4Gs93Uo1asa
 
 
-Игра: "Калькулятор"
+### Игра: "Калькулятор"
+Хорошо ли вы знаете математику? Давайте проверим: Вам нужно будет высчитать высчитать выражение.
 "brain-calc"
 https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz
 
 
-Игра: "Наибольший общий делитель"
+### Игра: "Наибольший общий делитель"
+В данной игре пользователь должен вычислить наибольший общий делитель двух чисел.
 "brain-gcd"
 https://asciinema.org/a/Fz29rac9DThNMQN1cGGFYs2Nk
 
 
-Игра: "Прогрессия"
+### Игра: "Прогрессия"
+В данной игре выводится ряд чисел, угадаете ли вы какое число пропущено?
 "brain-progression"
 https://asciinema.org/a/875orPIyAO9tyw71jwfoWxH0I
 
 
-Игра: "Простое ли число?"
+### Игра: "Простое ли число?"
+Здесь игроку предстоит определить является ли число простым.
 "brain-prime"
 https://asciinema.org/a/CevjszAZ1Y3rNnVQ4fjcMDsqr
