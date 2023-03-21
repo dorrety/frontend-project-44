@@ -18,20 +18,12 @@ export const greetings = () => {
 };
 
 // Получение ответа
-const getUserAnswer = () => {
+export const getUserAnswer = () => {
   userAnswer = readlineSync.question('Your answer: ');
 };
 
 // Получение случайного числа
-const getRandomInt = (max) => Math.floor(Math.random() * max);
-
-// Получение случайного мат. знака
-const getRandomOperator = () => {
-  const arr = ['+', '-', '*'];
-  const randomOperator = Math.floor(Math.random() * arr.length);
-  const operator = arr[randomOperator];
-  return operator;
-};
+export const getRandomInt = (max) => Math.floor(Math.random() * max);
 
 // Правила игры
 const rulesOfGames = (nameGame) => {

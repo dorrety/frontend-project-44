@@ -11,32 +11,42 @@
 make install
 ```
 
+## Запуск:
+
+```bash
+brain-even
+brain-calc
+brain-gcd
+brain-progression
+brain-prime
+```
+
 
 ### Игра: "Проверка на чётность"
 Нужно угадать чётное число или же нет.
-"brain-even"
-https://asciinema.org/a/JXVwb5pSZGORJm4Gs93Uo1asa
+**"brain-even"**
+[![asciicast](https://asciinema.org/a/JXVwb5pSZGORJm4Gs93Uo1asa.svg)](https://asciinema.org/a/JXVwb5pSZGORJm4Gs93Uo1asa.svg)
 
 
 ### Игра: "Калькулятор"
 Хорошо ли вы знаете математику? Давайте проверим: Вам нужно будет высчитать высчитать выражение.
-"brain-calc"
-https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz
+**"brain-calc"**
+[![asciicast](https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz)](https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz)
 
 
 ### Игра: "Наибольший общий делитель"
 В данной игре пользователь должен вычислить наибольший общий делитель двух чисел.
-"brain-gcd"
-https://asciinema.org/a/Fz29rac9DThNMQN1cGGFYs2Nk
+**"brain-gcd"**
+[![asciicast](https://asciinema.org/a/Fz29rac9DThNMQN1cGGFYs2Nk)](https://asciinema.org/a/Fz29rac9DThNMQN1cGGFYs2Nk)
 
 
 ### Игра: "Прогрессия"
 В данной игре выводится ряд чисел, угадаете ли вы какое число пропущено?
-"brain-progression"
-https://asciinema.org/a/875orPIyAO9tyw71jwfoWxH0I
+**"brain-progression"**
+[![asciicast](https://asciinema.org/a/875orPIyAO9tyw71jwfoWxH0I)](https://asciinema.org/a/875orPIyAO9tyw71jwfoWxH0I)
 
 
 ### Игра: "Простое ли число?"
 Здесь игроку предстоит определить является ли число простым.
-"brain-prime"
-https://asciinema.org/a/CevjszAZ1Y3rNnVQ4fjcMDsqr
+**"brain-prime"**
+[![asciicast](https://asciinema.org/a/CevjszAZ1Y3rNnVQ4fjcMDsqr)](https://asciinema.org/a/CevjszAZ1Y3rNnVQ4fjcMDsqr)
