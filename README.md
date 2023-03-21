@@ -30,7 +30,7 @@ brain-prime
 
 
 ### Игра: "Калькулятор"
-Хорошо ли вы знаете математику? Давайте проверим: Вам нужно будет высчитать высчитать выражение.
+Хорошо ли вы знаете математику? Давайте проверим: Вам нужно будет высчитать выражение.
 
 **"brain-calc"**
 [![asciicast](https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz.svg)](https://asciinema.org/a/MKwaD48B8okedFF55U7oslQfz)

@@ -1,4 +1,4 @@
-import runGame from "..";
+import runGame from "../index.js";
 import { getRandomInt } from "..";
 
 // Получение случайного мат. знака
@@ -21,13 +21,17 @@ const correctBrainCalcAnswer = (a, b) => {
     return correctAnswer;
 };
 
-randomNumber = getRandomInt(10);
-sign = getRandomOperator();
-const correctAnswer = correctBrainCalcAnswer(firstRandomInt, secondRandomInt).toString();
-const question = `Question: ${firstRandomInt} ${sign} ${secondRandomInt}`;
+const brainCalc = () => {
+    randomNumber = getRandomInt(10);
+    sign = getRandomOperator();
+    const correctAnswer = correctBrainCalcAnswer(firstRandomInt, secondRandomInt).toString();
+    const question = `Question: ${firstRandomInt} ${sign} ${secondRandomInt}`;
+};
 
-const runBrainCalc = (question, correctAnswer) => {
-    runGame();
+
+
+const runBrainCalc = () => {
+    runGame(question, correctAnswer);
 };
 
 export default runBrainCalc;
