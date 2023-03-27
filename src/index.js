@@ -1,26 +1,22 @@
 import * as readlineSync from 'readline-sync';
 
-let userName;
-let userAnswer;
-
 export const greetings = () => {
   console.log('Welcome to the Brain Games!');
-  userName = readlineSync.question('May I have your name? ');
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`${'Hello,'} ${userName}${'!'}`);
+  return userName;
 };
 
-const getUserAnswer = () => {
-  userAnswer = readlineSync.question('Your answer: ');
-};
+const getUserAnswer = () => readlineSync.question('Your answer: ');
 
 const runGame = (rules, game) => {
   let correctSum = 0;
-  greetings();
+  const userName = greetings();
   console.log(rules);
   for (let i = 0; i < 3; i += 1) {
     const [question, correctAnswer] = game();
     console.log(question);
-    getUserAnswer();
+    const userAnswer = getUserAnswer();
     if (correctAnswer === userAnswer) {
       correctSum += 1;
       console.log('Correct!');

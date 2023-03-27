@@ -3,7 +3,7 @@ import getRandomInt from '../randomInt.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
-const getNOD = (a, b) => {
+const getGcd = (a, b) => {
   let c = a;
   let d = b;
   while (c !== 0 && d !== 0) {
@@ -20,7 +20,7 @@ const getData = () => {
   const firstRandomInt = getRandomInt(2, 30);
   const secondRandomInt = getRandomInt(2, 30);
   const question = `Question: ${firstRandomInt} ${secondRandomInt}`;
-  const correctAnswer = getNOD(firstRandomInt, secondRandomInt).toString();
+  const correctAnswer = getGcd(firstRandomInt, secondRandomInt).toString();
   return [question, correctAnswer];
 };
 

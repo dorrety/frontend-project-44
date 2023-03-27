@@ -5,7 +5,7 @@ const rules = 'What is the result of the expression?';
 
 const getRandomOperator = () => {
   const arr = ['+', '-', '*'];
-  const randomOperator = Math.floor(Math.random() * arr.length);
+  const randomOperator = getRandomInt(0, 2);
   const operator = arr[randomOperator];
   return operator;
 };
@@ -18,9 +18,8 @@ const getCalc = (operator, a, b) => {
       return a - b;
     case '*':
       return a * b;
-    default:
+    default: throw new Error(`Unknown order state: '${operator}'!`);
   }
-  return operator;
 };
 
 const getData = () => {
