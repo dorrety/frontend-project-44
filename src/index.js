@@ -7,8 +7,6 @@ export const greetings = () => {
   return userName;
 };
 
-const getUserAnswer = () => readlineSync.question('Your answer: ');
-
 const runGame = (rules, game) => {
   let correctSum = 0;
   const userName = greetings();
@@ -16,7 +14,7 @@ const runGame = (rules, game) => {
   for (let i = 0; i < 3; i += 1) {
     const [question, correctAnswer] = game();
     console.log(question);
-    const userAnswer = getUserAnswer();
+    const userAnswer = readlineSync.question('Your answer: ');
     if (correctAnswer === userAnswer) {
       correctSum += 1;
       console.log('Correct!');
