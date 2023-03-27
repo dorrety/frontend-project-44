@@ -10,7 +10,7 @@ const getRandomOperator = () => {
   return operator;
 };
 
-const correctBrainCalcAnswer = (operator, a, b) => {
+const getCalc = (operator, a, b) => {
   switch (operator) {
     case '+':
       return a + b;
@@ -27,7 +27,7 @@ const getData = () => {
   const firstRandomInt = getRandomInt(0, 10);
   const secondRandomInt = getRandomInt(0, 10);
   const operator = getRandomOperator();
-  const correctAnswer = correctBrainCalcAnswer(operator, firstRandomInt, secondRandomInt).toString();
+  const correctAnswer = getCalc(operator, firstRandomInt, secondRandomInt).toString();
   const question = `Question: ${firstRandomInt} ${operator} ${secondRandomInt}`;
   return [question, correctAnswer];
 };
