@@ -3,7 +3,7 @@ import getRandomInt from '../randomInt.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const getPrime = (number) => {
+const isPrime = (number) => {
   if (number < 2) {
     return false;
   }
@@ -18,7 +18,7 @@ const getPrime = (number) => {
 const getData = () => {
   const firstRandomInt = getRandomInt(2, 20);
   const question = `Question: ${firstRandomInt}`;
-  const correctAnswer = getPrime(firstRandomInt) ? 'yes' : 'no';
+  const correctAnswer = isPrime(firstRandomInt) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
