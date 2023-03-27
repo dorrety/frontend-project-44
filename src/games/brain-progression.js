@@ -9,7 +9,7 @@ const getProgression = () => {
   const arr = [];
   const firstRandomInt = getRandomInt(0, 15);
   const stepProgression = getRandomInt(1, 10);
-  const hideIndex = getRandomInt(0, 10);
+  const hideIndex = getRandomInt(0, 9);
   const endProgression = firstRandomInt + stepProgression * 10;
 
   for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
