@@ -1,13 +1,8 @@
-import runGame, { getRandomInt } from '../index.js';
-
-let question;
-let correctAnswer;
-let firstRandomInt;
-let secondRandomInt;
+import runGame from '../index.js';
+import getRandomInt from '../randomInt.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
-// Функция для игры НОД
 const getNOD = (a, b) => {
   let c = a;
   let d = b;
@@ -21,16 +16,16 @@ const getNOD = (a, b) => {
   return c + d;
 };
 
-const brainGcd = () => {
-  firstRandomInt = getRandomInt(10);
-  secondRandomInt = getRandomInt(10);
-  question = `Question: ${firstRandomInt} ${secondRandomInt}`;
-  correctAnswer = getNOD(firstRandomInt, secondRandomInt).toString();
+const getData = () => {
+  const firstRandomInt = getRandomInt(2, 30);
+  const secondRandomInt = getRandomInt(2, 30);
+  const question = `Question: ${firstRandomInt} ${secondRandomInt}`;
+  const correctAnswer = getNOD(firstRandomInt, secondRandomInt).toString();
   return [question, correctAnswer];
 };
 
 const runBrainGcd = () => {
-  runGame(rules, brainGcd);
+  runGame(rules, getData);
 };
 
 export default runBrainGcd;

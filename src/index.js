@@ -3,20 +3,15 @@ import * as readlineSync from 'readline-sync';
 let userName;
 let userAnswer;
 
-// Приветствие
 export const greetings = () => {
   console.log('Welcome to the Brain Games!');
   userName = readlineSync.question('May I have your name? ');
   console.log(`${'Hello,'} ${userName}${'!'}`);
 };
 
-// Получение ответа
 const getUserAnswer = () => {
   userAnswer = readlineSync.question('Your answer: ');
 };
-
-// Получение случайного числа
-export const getRandomInt = (max) => Math.floor(Math.random() * max);
 
 const runGame = (rules, game) => {
   let correctSum = 0;

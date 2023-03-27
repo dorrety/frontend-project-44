@@ -1,14 +1,10 @@
-import runGame, { getRandomInt } from '../index.js';
+import runGame from '../index.js';
+import getRandomInt from '../randomInt.js';
 
-let question;
 let correctAnswer;
-let firstRandomInt;
-let secondRandomInt;
-let sign;
 
 const rules = 'What is the result of the expression?';
 
-// Получение случайного мат. знака
 const getRandomOperator = () => {
   const arr = ['+', '-', '*'];
   const randomOperator = Math.floor(Math.random() * arr.length);
@@ -16,29 +12,30 @@ const getRandomOperator = () => {
   return operator;
 };
 
-// Правильный ответ для brain-calc
-const correctBrainCalcAnswer = (a, b) => {
-  if (sign === '+') {
-    correctAnswer = a + b;
-  } else if (sign === '-') {
-    correctAnswer = a - b;
-  } else {
-    correctAnswer = a * b;
+const correctBrainCalcAnswer = (operator, a, b) => {
+  switch (operator) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
   }
-  return correctAnswer;
+  return operator;
 };
 
-const brainCalc = () => {
-  firstRandomInt = getRandomInt(10);
-  secondRandomInt = getRandomInt(10);
-  sign = getRandomOperator();
-  correctAnswer = correctBrainCalcAnswer(firstRandomInt, secondRandomInt).toString();
-  question = `Question: ${firstRandomInt} ${sign} ${secondRandomInt}`;
+const getData = () => {
+  const firstRandomInt = getRandomInt(0, 10);
+  const secondRandomInt = getRandomInt(0, 10);
+  const operator = getRandomOperator();
+  correctAnswer = correctBrainCalcAnswer(operator, firstRandomInt, secondRandomInt).toString();
+  const question = `Question: ${firstRandomInt} ${operator} ${secondRandomInt}`;
   return [question, correctAnswer];
 };
 
 const runBrainCalc = () => {
-  runGame(rules, brainCalc);
+  runGame(rules, getData);
 };
 
 export default runBrainCalc;

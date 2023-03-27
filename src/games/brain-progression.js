@@ -1,22 +1,15 @@
-import runGame, { getRandomInt } from '../index.js';
+import runGame from '../index.js';
+import getRandomInt from '../randomInt.js';
 
-let question;
-let correctAnswer;
-let firstRandomInt;
-let stepProgression;
 let hiddenNumber;
 
 const rules = 'What number is missing in the progression?';
 
-// Функция для игры brain-progression
 const getProgression = () => {
   const arr = [];
-  firstRandomInt = getRandomInt(15);
-  stepProgression = getRandomInt(10);
-  const hideIndex = getRandomInt(10);
-  if (stepProgression === 0) {
-    stepProgression = getRandomInt(10);
-  }
+  const firstRandomInt = getRandomInt(0, 15);
+  const stepProgression = getRandomInt(1, 10);
+  const hideIndex = getRandomInt(0, 10);
   const endProgression = firstRandomInt + stepProgression * 10;
 
   for (let i = firstRandomInt; i < endProgression; i += stepProgression) {
@@ -26,14 +19,14 @@ const getProgression = () => {
   return arr.join(' ');
 };
 
-const brainProgression = () => {
-  question = `Question: ${getProgression()}`;
-  correctAnswer = hiddenNumber.toString();
+const getData = () => {
+  const question = `Question: ${getProgression()}`;
+  const correctAnswer = hiddenNumber.toString();
   return [question, correctAnswer];
 };
 
 const runBrainProgression = () => {
-  runGame(rules, brainProgression);
+  runGame(rules, getData);
 };
 
 export default runBrainProgression;
